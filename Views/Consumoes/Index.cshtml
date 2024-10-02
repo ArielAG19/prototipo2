@@ -1,0 +1,71 @@
+﻿@model IEnumerable<prototipo2.Models.Consumo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaConsumo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraConsumo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpleadoEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoPagado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMenuNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTurnoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaConsumo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraConsumo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpleadoEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoPagado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMenuNavigation.IdMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTurnoNavigation.IdTurno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdConsumo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdConsumo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdConsumo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
