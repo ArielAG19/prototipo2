@@ -4,56 +4,41 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Tipos de Consumo</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreditosNecesarios)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequiereReserva)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraFin)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditosNecesarios)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequiereReserva)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraFin)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdTipoConsumo">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdTipoConsumo">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdTipoConsumo">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Tipo)</th>
+                <th>@Html.DisplayNameFor(model => model.CreditosNecesarios)</th>
+                <th>@Html.DisplayNameFor(model => model.RequiereReserva)</th>
+                <th>@Html.DisplayNameFor(model => model.HoraInicio)</th>
+                <th>@Html.DisplayNameFor(model => model.HoraFin)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreditosNecesarios)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RequiereReserva)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoraInicio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoraFin)</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.IdTipoConsumo">Edit</a>
+                        <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.IdTipoConsumo">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdTipoConsumo">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" />

@@ -1,59 +1,44 @@
 ﻿@model IEnumerable<prototipo2.Models.Reserva>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Reservas";
 }
 
-<h1>Index</h1>
+<h1>Reservas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraReserva)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdMenuNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTurnoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraReserva)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdMenuNavigation.IdMenu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTurnoNavigation.IdTurno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdReserva">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdReserva">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdReserva">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+                <th>@Html.DisplayNameFor(model => model.HoraReserva)</th>
+                <th>@Html.DisplayNameFor(model => model.IdMenuNavigation.IdMenu)</th>
+                <th>@Html.DisplayNameFor(model => model.IdTurnoNavigation.IdTurno)</th>
+                <th>@Html.DisplayNameFor(model => model.IdUsuarioNavigation.IdUsuario)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoraReserva)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdMenuNavigation.IdMenu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdTurnoNavigation.IdTurno)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.IdReserva">Edit</a>
+                        <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.IdReserva">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdReserva">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" />

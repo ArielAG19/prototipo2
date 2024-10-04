@@ -1,0 +1,35 @@
+﻿/* Estilos específicos para mejorar la visualización en móviles */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    thead {
+        display: none; /* Ocultar el encabezado en móvil */
+    }
+
+    tr {
+        display: block; /* Cada fila como un bloque */
+        margin-bottom: 10px; /* Espaciado entre filas */
+        border: 1px solid #ccc; /* Bordes para cada fila */
+        border-radius: 5px; /* Bordes redondeados */
+        padding: 10px; /* Espaciado interno */
+        background-color: #ff0000; /* Fondo rojo */
+    }
+
+    td {
+        display: block; /* Cada celda como un bloque */
+        text-align: left; /* Alinear texto a la izquierda */
+        padding: 5px; /* Espaciado interno */
+        border: none; /* Sin borde en celdas */
+    }
+
+        td:before {
+            content: attr(data-label); /* Mostrar nombre de columna como etiqueta */
+            font-weight: bold; /* Negrita para la etiqueta */
+            display: inline-block; /* Mostrar en línea */
+            width: 120px; /* Ancho de la etiqueta */
+        }
+}

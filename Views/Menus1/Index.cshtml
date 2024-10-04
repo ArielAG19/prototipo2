@@ -1,65 +1,46 @@
 ﻿@model IEnumerable<prototipo2.Models.Menu>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Menús";
 }
 
-<h1>Index</h1>
+<h1>Menús</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreMenu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CostoExtra)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CantidadDisponible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTipoConsumoNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreMenu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CostoExtra)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CantidadDisponible)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTipoConsumoNavigation.IdTipoConsumo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMenu">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMenu">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMenu">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.NombreMenu)</th>
+                <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                <th>@Html.DisplayNameFor(model => model.CostoExtra)</th>
+                <th>@Html.DisplayNameFor(model => model.CantidadDisponible)</th>
+                <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+                <th>@Html.DisplayNameFor(model => model.IdTipoConsumoNavigation.IdTipoConsumo)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NombreMenu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CostoExtra)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CantidadDisponible)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdTipoConsumoNavigation.IdTipoConsumo)</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.IdMenu">Edit</a>
+                        <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.IdMenu">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdMenu">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" />

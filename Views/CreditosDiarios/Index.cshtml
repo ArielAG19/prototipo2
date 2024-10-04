@@ -1,53 +1,42 @@
 ﻿@model IEnumerable<prototipo2.Models.CreditosDiario>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Créditos Diarios";
 }
 
-<h1>Index</h1>
+<h1>Créditos Diarios</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreditosAsignados)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreditosConsumidos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditosAsignados)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditosConsumidos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCredito">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCredito">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCredito">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+                <th>@Html.DisplayNameFor(model => model.CreditosAsignados)</th>
+                <th>@Html.DisplayNameFor(model => model.CreditosConsumidos)</th>
+                <th>@Html.DisplayNameFor(model => model.IdUsuarioNavigation.IdUsuario)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreditosAsignados)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreditosConsumidos)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.IdCredito">Edit</a>
+                        <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.IdCredito">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdCredito">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" />

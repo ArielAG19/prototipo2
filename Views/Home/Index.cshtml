@@ -1,15 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Menú de Navegación";
+    ViewData["Title"] = "CANTINA";
 }
 
-<h2>Menú de Navegación</h2>
+<div class="container">
+    <h2>CANTINA</h2>
 
-<ul>
-    <li><a href="@Url.Action("Index", "Usuarios")">Usuarios</a></li>
-    <li><a href="@Url.Action("Index", "Turnoes")">Turnos</a></li>
-    <li><a href="@Url.Action("Index", "TiposConsumoes")">Tipos de Consumo</a></li>
-    <li><a href="@Url.Action("Index", "Reservas")">Reservas</a></li>
-    <li><a href="@Url.Action("Index", "Menus1")">Menús</a></li>
-    <li><a href="@Url.Action("Index", "Consumoes")">Consumos</a></li>
-    <li><a href="@Url.Action("Index", "CreditosDiarios")">Créditos Diarios</a></li>
-</ul>
+    <ul class="menu">
+        <li><a href="@Url.Action("Index", "Usuarios")">Usuarios</a></li>
+        <li><a href="@Url.Action("Index", "Turnoes")">Turnos</a></li>
+        <li><a href="@Url.Action("Index", "TiposConsumoes")">Tipos de Consumo</a></li>
+        <li><a href="@Url.Action("Index", "Reservas")">Reservas</a></li>
+        <li><a href="@Url.Action("Index", "Menus1")">Menús</a></li>
+        <li><a href="@Url.Action("Index", "Consumoes")">Consumos</a></li>
+        <li><a href="@Url.Action("Index", "CreditosDiarios")">Créditos Diarios</a></li>
+    </ul>
+</div>

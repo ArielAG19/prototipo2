@@ -1,7 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #808080; /* gris para el fondo */
+}
+
+h2 {
+    color: #d32f2f; /* Rojo oscuro */
+    font-size: 2.5em; /* Tamaño de fuente más grande */
+    text-align: center;
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
     ul li {
@@ -12,7 +25,7 @@ ul {
         ul li a {
             display: block;
             padding: 10px 20px;
-            background-color: #4CAF50; /* Verde del botón */
+            background-color: #ff0000; /* botones rojo oscuro */
             color: white;
             text-decoration: none;
             font-size: 18px;
@@ -21,21 +34,45 @@ ul {
         }
 
             ul li a:hover {
-                background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+                background-color: #ffffff; /* blanco al pasar el mouse */
             }
 
-h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+            ul li a:active {
+                background-color: #ff0000; /* rojo al hacer clic */
+            }
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    ul li {
+        display: block; /* Cambia los elementos de la lista a bloque para pantallas pequeñas */
+        margin: 10px 0; /* Añade espacio entre los elementos en vertical */
+    }
+
+        ul li a {
+            width: 100%; /* Asegura que los enlaces ocupen todo el ancho del contenedor en dispositivos móviles */
+        }
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+@media (max-width: 480px) {
+    ul li a {
+        font-size: 16px; /* Reduce un poco el tamaño del texto para pantallas muy pequeñas */
+        padding: 8px 15px; /* Ajusta el padding para hacer los botones más compactos */
+    }
 }
 
-ul li a:active {
-    background-color: #3e8e41;
+/* Estilos para las tablas */
+table {
+    width: 100%; /* Asegura que las tablas ocupen todo el ancho del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+}
+
+th, td {
+    color: white; /* Cambia el color del texto a blanco */
+    padding: 8px; /* Espaciado dentro de las celdas */
+    text-align: left; /* Alineación del texto */
+    border-bottom: 1px solid #ddd; /* Línea de separación entre filas */
+}
+
+th {
+    background-color: #333; /* Un fondo oscuro para los encabezados de la tabla */
 }

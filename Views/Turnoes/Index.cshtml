@@ -4,50 +4,39 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Turnos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Turno1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraFin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdTipoConsumoNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Turno1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraFin)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdTipoConsumoNavigation.IdTipoConsumo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdTurno">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdTurno">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdTurno">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Turno1)</th>
+                <th>@Html.DisplayNameFor(model => model.HoraInicio)</th>
+                <th>@Html.DisplayNameFor(model => model.HoraFin)</th>
+                <th>@Html.DisplayNameFor(model => model.IdTipoConsumoNavigation)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Turno1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoraInicio)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoraFin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdTipoConsumoNavigation.IdTipoConsumo)</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.IdTurno">Edit</a>
+                        <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.IdTurno">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdTurno">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" />
